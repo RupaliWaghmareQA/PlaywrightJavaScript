@@ -1,0 +1,12 @@
+{
+  "search": {
+    "searchTerm": "Refrigerator"
+  },
+  "brands": {
+    "brandFilter": ["Samsung", "LG"]
+  },
+  "user": {
+    "email": "test@example.com",
+    "password": "TestPass@123"
+  }
+}
