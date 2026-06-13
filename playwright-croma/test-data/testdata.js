@@ -1,9 +1,8 @@
-{
-
-    "pincode": "413304",
-
+  export const testData =
+ {
+  "pincode": "413304",
   "search": {
-    "searchTerm": "Refrigerator"
+    "searchTerm": "refrigerator"
   },
   "brands": {
     "brandFilter": ["Samsung", "LG"]
