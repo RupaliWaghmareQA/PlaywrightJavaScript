@@ -19,8 +19,7 @@ export const test = base.extend({
     // Test runs here
     await use(basepage);
 
-
-    
+   
     // This runs AFTER each test (afterEach)
     console.log('✅ afterEach hook executed');
   },
@@ -31,9 +30,7 @@ export const test = base.extend({
   search: async ({ page }, use) => {
     const search = new SearchProduct(page);
     await use(search);
-  //  // await search.goto("https://www.croma.com/");
-  //   //await search.clickonSearch();
-  //   await search.searchProductAndValidateResults(testData.search.searchTerm);
+
   },
   });
 

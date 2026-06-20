@@ -31,7 +31,5 @@ export class SearchProduct extends Basepage {
     // Click "refrigerators"
     await this.page.locator(`text=${searchTerm}`).first().click();
  
-
-
-}
+    }
 }
