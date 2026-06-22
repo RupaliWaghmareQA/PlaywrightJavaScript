@@ -2,14 +2,15 @@
  {  "pincode": "413304",
  search: [
      { searchTerm: "refrigerator" },
-    { searchTerm: "washing machine"},
-    { searchTerm: "microwave" },
+   // { searchTerm: "washing machine"},
+    //{ searchTerm: "microwave" },
  ],
 
   brands:[ 
   { brandFilter:"Samsung"  },
   { brandFilter:"LG" },
-  { brandFilter:"Apple" }
+  { brandFilter:"Apple" },
+  { brandFilter:"Blue Star"}
 ],
   
   "user": {
