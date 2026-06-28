@@ -9,7 +9,7 @@ test.setTimeout(60000);
 test.describe('Brand Filter Tests', () => {
 
 testData.brands.forEach((brandObj) => {
-   test.only(`Test 1 - filter by ${brandObj.brandFilter} `, async ({ page, login }) => {
+   test(`Test 1 - filter by ${brandObj.brandFilter} `, async ({ page, login }) => {
      
       const brandfilter = new BrandFilter(page, login);
       await brandfilter.clickonMenu();

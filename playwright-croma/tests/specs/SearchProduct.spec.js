@@ -6,15 +6,19 @@ import { test } from "../fixtures/beforeEachFixtures.js";
 import {Basepage} from "../pages/Basepage.js";
 
 
-test("Croma Search Product", async ({ page,login,search }) => {
+test.describe("Croma Search Product",() => {
 
-    const searchproduct= new SearchProduct(page,login,SearchProduct);
+    testData.search.forEach((searchobj) => {
+    test(`Search by ${searchobj.searchTerm} `, async ({ page, login}) => 
+        {
+    const searchproduct= new SearchProduct(page,login);
 
-   await searchproduct.searchProductAndValidateResults(testData.search.searchTerm);
+    await searchproduct.searchProductAndValidateResults(searchobj.searchTerm);
    
     console.log("Test passed");
+    });
 
+
+    });
 
 });
-
-

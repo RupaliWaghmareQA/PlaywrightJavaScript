@@ -1,16 +1,17 @@
   export const testData =
  {  "pincode": "413304",
+  
  search: [
      { searchTerm: "refrigerator" },
-   // { searchTerm: "washing machine"},
-    //{ searchTerm: "microwave" },
+   { searchTerm: "washing machine"},
+    { searchTerm: "microwave" },
  ],
 
   brands:[ 
   { brandFilter:"Samsung"  },
-  { brandFilter:"LG" },
+  { brandFilter:"Bosch" },
   { brandFilter:"Apple" },
-  { brandFilter:"Blue Star"}
+  { brandFilter:"Blue Star"},
 ],
   
   "user": {
