@@ -7,6 +7,7 @@ export class SearchProduct extends Basepage {
        this.searchfield = page.locator("//input[@id='searchV2']");
        this.enterProductName=page.locator("//input[@id='searchV2']");
        this.searchResult = page.locator("//ul[@role='listbox']");
+       this.sortBydropdown=page.locator("//div[@data-testid='sortdatae1']");
     }
     
     async clickonSearch()
@@ -25,10 +26,6 @@ export class SearchProduct extends Basepage {
     {
     await this.clickonSearch();
     await this.EnterProductName(searchTerm);
-
-    // Wait for dropdown to appear
-    // await this.searchResult
-    // await this.waitForSelector('//ul[@role="listbox"]', { timeout: 3000 });
 
     // Click "refrigerators"
     await this.page.locator(`text=${searchTerm}`).first().click();

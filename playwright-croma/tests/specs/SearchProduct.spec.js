@@ -9,7 +9,7 @@ import {Basepage} from "../pages/Basepage.js";
 test.describe("Croma Search Product",() => {
 
     testData.search.forEach((searchobj) => {
-    test(`Search by ${searchobj.searchTerm} `, async ({ page, login}) => 
+    test(`Search by ${searchobj.searchTerm} `, async ({ page,login}) => 
         {
     const searchproduct= new SearchProduct(page,login);
 
@@ -21,4 +21,4 @@ test.describe("Croma Search Product",() => {
 
     });
 
-});
+})

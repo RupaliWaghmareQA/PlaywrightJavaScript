@@ -1,6 +1,9 @@
   export const testData =
- {  "pincode": "413304",
-  
+
+  {  "pincode": "413304",
+
+    "searchproduct":"Laptop",
+    
  search: [
      { searchTerm: "refrigerator" },
    { searchTerm: "washing machine"},
