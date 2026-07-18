@@ -14,29 +14,35 @@ testData.brands.forEach((brandObj) => {
       const brandfilter = new BrandFilter(page, login);
       await brandfilter.clickonMenu();
       await brandfilter.ClickonTopBrands();
-      // assume BrandFilter page object can click a brand by name
-      // e.g. await brandfilter.clickBrandByName(brand);
-
       await brandfilter.clickonBrand(brandObj.brandFilter);
-      
-            //throw error;
-         
-   
-//verify page contains
-   
-      const convertlower=brandObj.brandFilter.toLocaleLowerCase();
-       await page.url(`https://www.croma.com/${convertlower}-store/b/b-0025`);
-      // const URL = await page.url();
-      // expect(URL.toLowerCase()).toContain(String(brandObj.brandFilter).toLowerCase());
-       console.log(`Brand Object ${brandObj.brandFilter}`);
+             
+   //verify page contain
+        const convertlower=brandObj.brandFilter.toLocaleLowerCase();
+        const removedSpaces=convertlower.replace(/\s+/g, "");
 
-      // // const title = await page.title();
-      // expect(title).toContain(brandObj.brandFilter);
+       await page.url(`https://www.croma.com/${removedSpaces}-store/b/b-0025`)
+       console.log(`Brand Object ${brandObj.brandFilter}`);
       
+       //verify the URL contains the brand name
+       
+   const currntURL= await page.url();
+   console.log(`Current URL: ${currntURL}`);
+   expect(currntURL.toLocaleLowerCase()).toContain((`${removedSpaces}-store`));
+   
+
+   
+     })
+
+   
+
+
+
    });
 
 
+
+   
+
 });
 
-  
-})
+
