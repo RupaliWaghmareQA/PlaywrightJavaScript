@@ -16,19 +16,37 @@ testData.brands.forEach((brandObj) => {
       await brandfilter.ClickonTopBrands();
       await brandfilter.clickonBrand(brandObj.brandFilter);
              
-   //verify page contain
-        const convertlower=brandObj.brandFilter.toLocaleLowerCase();
-        const removedSpaces=convertlower.replace(/\s+/g, "");
-
-       await page.url(`https://www.croma.com/${removedSpaces}-store/b/b-0025`)
-       console.log(`Brand Object ${brandObj.brandFilter}`);
+   //Step 1: verify page contain
+        const convertlower=brandObj.brandFilter.toLocaleLowerCase().replace(/[^a-z0-9]/g, "");
+        console.log(`Brand Object ${brandObj.brandFilter}`);
       
-       //verify the URL contains the brand name
-       
-   const currntURL= await page.url();
+       //Step 2:verify the URL contains the brand name
+   await page.waitForURL(`**/${convertlower}-store/**`); 
+   const currntURL=  page.url();
    console.log(`Current URL: ${currntURL}`);
-   expect(currntURL.toLocaleLowerCase()).toContain((`${removedSpaces}-store`));
-   
+   expect(currntURL.toLocaleLowerCase()).toContain((`${convertlower}-store`));
+
+
+   // STEP 3: Check that products actually loaded
+      await page.getByRole('button', { name: 'view all products' }).click();
+           // await page.waitForURL(`**/products**`);
+             // await page.waitForURL(`**/${convertlower}-/**`); 
+
+
+      expect(page.url()).toContain(`products`);
+      
+      const productLinks = await brandfilter.getAllProductLinks();
+
+      expect(productLinks.length).toBeGreaterThan(0);
+
+
+      // STEP 4: Check every single product belongs to this brand
+      for (const link of productLinks) {
+        expect(link.toLowerCase()).toContain(`/${convertlower}-`);
+                console.log(`Product links: ${productLinks}`);
+
+      }
+
 
    
      })

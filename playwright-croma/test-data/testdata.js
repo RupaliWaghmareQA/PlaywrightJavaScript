@@ -14,7 +14,8 @@
   { brandFilter:"Samsung"  },
   { brandFilter:"Bosch" },
   { brandFilter:"Apple" },
-  { brandFilter:"Blue Star"},
+  { brandFilter:"Dell"},
+  { brandFilter:"Croma" },
 ],
   
   "user": {

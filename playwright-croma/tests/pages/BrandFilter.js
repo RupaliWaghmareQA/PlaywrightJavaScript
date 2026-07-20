@@ -34,23 +34,27 @@ export class BrandFilter extends Basepage {
         await this.topBrands.click();
     }
 
-   /* async ClickonAppleBrandFilter()
-    {
-        await this.brandfilterApple.click();
-    }
-
-    async ClickonBoschBrandFilter()
-    {
-        await this.brandFilterBosch.click();
-    }
-    async ClickonLGBrandFilter()
-    {
-        await this.brandFilterLG.click();
-    }*/
+  
 
     async pageHeading()
     {
         await this.pageheading;
     }
+
+// Gets the link (href) of every product shown on the page
+ async getAllProductLinks() {
+  const links = this.page.locator('[data-testid="product-img"] a' );
+
+  await links.first().waitFor({ state: 'attached' });
+
+  // Grab every href in one go — no per-item waiting, no timeout risk
+  const hrefs = await links.evaluateAll((elements) =>
+    elements.map((el) => el.getAttribute('href'))
+  );
+  console.log(`Product links: ${hrefs}`);
+
+  return hrefs;
+}
+
 
 }
