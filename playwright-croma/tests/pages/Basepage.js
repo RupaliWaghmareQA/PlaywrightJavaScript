@@ -19,13 +19,11 @@ export class Basepage {
              async enterPincode(pincode) {
                 await this.pincodefield.click();
                 await this.pincodefield.fill(' ');
-               //
-    
                 await this.pincodefield.fill(testData.pincode);
         }   
             async clickonContinueButton() {
                 await this.continueButton.click();
             }           
- 
+   
  
 }
