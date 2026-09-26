@@ -1,7 +1,9 @@
-import { expect } from '@playwright/test';
+//import { test, expect } from '../fixtures/auth.fixture';
+
+//import { expect } from '@playwright/test';
 import { CromaSorting} from "../pages/CromaSorting.js";
 import { testData} from '../../test-data/testdata.js'; 
-import { test } from "../fixtures/beforeEachFixtures.js";
+import { test,expect } from "../fixtures/beforeEachFixtures.js";
 import { SearchProduct } from '../pages/SearchProduct.js';
 
 import {Basepage} from "../pages/Basepage.js";

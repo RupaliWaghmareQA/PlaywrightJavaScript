@@ -17,6 +17,36 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
+
+projects: [
+
+    {
+      name: 'setup',
+      testMatch: /.*\.setup\.ts/,
+    },
+
+    {
+      name: 'chromium',
+      dependencies: ['setup'],
+
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: 'playwright/.auth/user.json',
+      },
+    },
+
+  ],
+
+
+
+
+
+
+
+
+
+
+
   
   timeout: 30 * 1000,
   expect: {

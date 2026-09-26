@@ -1,12 +1,14 @@
-import { expect } from '@playwright/test';
+//import {  expect } from '../fixtures/auth.fixture';
+// import { expect } from '@playwright/test';
 import { BrandFilter } from "../pages/BrandFilter.js";
 import { testData } from '../../test-data/testdata.js';
-import { test } from "../fixtures/beforeEachFixtures.js";
+import { test ,expect} from "../fixtures/beforeEachFixtures.js";
 
 test.setTimeout(60000);
 
 // Iterate over configured brands and create a test for each
 test.describe('Brand Filter Tests', () => {
+
 
 testData.brands.forEach((brandObj) => {
    test(`Test 1 - filter by ${brandObj.brandFilter} `, async ({ page, login }) => {
@@ -38,7 +40,6 @@ testData.brands.forEach((brandObj) => {
       const productLinks = await brandfilter.getAllProductLinks();
 
       expect(productLinks.length).toBeGreaterThan(0);
-
 
       // STEP 4: Check every single product belongs to this brand
       for (const link of productLinks) {
