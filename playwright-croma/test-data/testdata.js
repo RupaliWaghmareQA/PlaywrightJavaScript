@@ -12,7 +12,7 @@
 
   brands:[ 
   { brandFilter:"Samsung"  },
-  { brandFilter:"Bosch" },
+  { brandFilter:"Lenovo" },
   { brandFilter:"Apple" },
   { brandFilter:"Dell"},
   { brandFilter:"Croma" },

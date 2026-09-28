@@ -1,3 +1,64 @@
+const { defineConfig, devices } = require('@playwright/test');
+
+module.exports = defineConfig({
+  testDir: './tests',
+
+  use: {
+    baseURL: 'https://www.croma.com/',
+  },
+
+  projects: [
+    {
+      name: 'setup',
+      testMatch: /.*\.setup\.ts/,
+    },
+
+    {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome'],
+
+        baseURL: 'https://www.croma.com/',
+        
+        storageState: 'playwright/.auth/user.json',
+        permissions: ['notifications', 'geolocation'],
+        geolocation: { latitude: 18.5204, longitude: 73.8567 },
+      },
+      dependencies: ['setup'],
+    },
+  ],
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
 
@@ -18,69 +79,30 @@ export default defineConfig({
     screenshot: 'only-on-failure',
   },
 
-projects: [
-
+  projects: [
     {
       name: 'setup',
-      testMatch: /.*\.setup\.ts/,
+      testMatch: /.*\.setup\.js/,
     },
 
     {
       name: 'chromium',
-      dependencies: ['setup'],
 
       use: {
         ...devices['Desktop Chrome'],
         storageState: 'playwright/.auth/user.json',
+        permissions: ['notifications', 'geolocation'],
+        geolocation: { latitude: 18.5204, longitude: 73.8567 },
       },
+      dependencies: ['setup'],
     },
-
   ],
-
-
-
-
-
-
-
 
 
 
 
   
-  timeout: 30 * 1000,
-  expect: {
-    timeout: 5000,
-  },
-
-  projects: [
-    {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-        // Grant permissions for notifications and location
-        permissions: ['notifications', 'geolocation'],
-        geolocation: { latitude: 18.5204, longitude: 73.8567 }, // Pune
       },
-    },
-
-   /* {
-      name: 'firefox',
-      use: { 
-        ...devices['Desktop Firefox'],
-        permissions: ['notifications', 'geolocation'],
-        geolocation: { latitude: 18.5204, longitude: 73.8567 },
-      },
-
-    },
-
-    {
-      name: 'webkit',
-      use: { 
-        ...devices['Desktop Safari'],
-        permissions: ['notifications', 'geolocation'],
-        geolocation: { latitude: 18.5204, longitude: 73.8567 },
-      },
-    },*/
   ],
-});
+});  */
+

@@ -3,17 +3,21 @@ import {Basepage} from "./Basepage.js";
 export class MultiBrandFilters extends Basepage {
     constructor(page) {
         super(page);
-         this.searchfield = page.locator("//input[@id='searchV2']");
+       this.searchfield = page.locator("//input[@id='searchV2']");
        this.enterProductName=page.locator("//input[@id='searchV2']");
        this.searchResult = page.locator("//ul[@role='listbox']");
        this.sortingdropdown = page.locator("//div[@data-testid='sortdatae1']");
-        this.brandbtn=page.getByRole('button', { name: 'Brand' });
+
+       // this.brandbtn=page.getByRole('button', { name: 'Brand' });
+
+        this.brandbtn =page.locator('#panel4bh-header').getByRole('button', { name: 'Brand' });
         this.samsung =page.locator("//label[@for='SG-ManufacturerDetails-Brand-Samsung'] ");
         this.lg =page.locator("//label[@for='SG-ManufacturerDetails-Brand-LG'] ");
         this.wh =page.locator("//label[@for='SG-ManufacturerDetails-Brand-Whirlphool'] ");
         this.dell =page.locator("//label[@for='SG-ManufacturerDetails-Brand-Dell']");
-        this.hp = page.locator("//label[@for='SG-ManufacturerDetails-Brand-HP']");
+        this.hp =      page.locator('label[for="SG-ManufacturerDetails-Brand-HP"]');
     }
+
 
     async searchProduct(product)
     {
@@ -28,7 +32,9 @@ export class MultiBrandFilters extends Basepage {
 
 async clickonBrandFilter()
     {
-        await this.brandbtn.click();
+
+        //await this.brandbtn.waitFor({ state: 'visible' });
+        await this.brandbtn.click({ force: true });
     }
 
 async selectLaptopBrands()
@@ -56,12 +62,18 @@ async selectWhirlpool()
 }
 
 
-
+async selectDell()
+{
+    await this.dell.scrollIntoViewIfNeeded();
+    await this.dell.evaluate(el => el.click())
+}
    
 async selectHP()
 {
     //await this.hp.scrollIntoViewIfNeeded();
-   await this.hp.click({ force: true });
+   //await this.hp.click({ force: true });
+        await this.hp.scrollIntoViewIfNeeded();
+        await this.hp.evaluate(el => el.click())
 }
 
 

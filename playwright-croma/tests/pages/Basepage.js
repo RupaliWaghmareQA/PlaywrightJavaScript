@@ -6,15 +6,24 @@ export class Basepage {
     constructor(page) {
         this.page = page;
         this.testdata = testData;
-        this.pincodefield = page.getByPlaceholder("Enter Pincode");
+       // this.pincodefield = page.getByPlaceholder("Enter Pincode");
+        this.pincodefield = page.locator('input.formControl.dark-input-pincode.pinElem');
         this.continueButton = page.locator('button:has-text("Continue")');
     }
 
       // ============ NAVIGATION ============
-    async goto(url= '/')
-    {
+     async goto(url= '/')
+     {
        await this.page.goto(url);
+         //  await this.page.waitForLoadState('networkidle')
+
     }
+
+
+ 
+
+
+
     
              async enterPincode(pincode) {
                 await this.pincodefield.click();

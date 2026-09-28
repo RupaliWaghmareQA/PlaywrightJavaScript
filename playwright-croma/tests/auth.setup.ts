@@ -2,11 +2,14 @@ import { test as setup } from '@playwright/test';
 
 const authFile = 'playwright/.auth/user.json';
 
-setup('authenticate user', async ({ page }) => {
+setup('authenticate', async ({ page }) => {
 
   await page.goto('/');
 
-  await page.getByLabel('Enter Pincode').fill('413304');
+  
+  const pincodeInput = page.locator('input.formControl.dark-input-pincode.pinElem');
+  await pincodeInput.clear();
+  await pincodeInput.fill('413304');
 
  // await page.getByLabel('Password').fill('SuperSecretPassword!');
 
