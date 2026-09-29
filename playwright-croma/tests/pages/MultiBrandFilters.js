@@ -10,7 +10,8 @@ export class MultiBrandFilters extends Basepage {
 
        // this.brandbtn=page.getByRole('button', { name: 'Brand' });
 
-        this.brandbtn =page.locator('#panel4bh-header').getByRole('button', { name: 'Brand' });
+        this.brandbtn =page.locator('p.accorian-title', { hasText: 'Brand' }).first();
+
         this.samsung =page.locator("//label[@for='SG-ManufacturerDetails-Brand-Samsung'] ");
         this.lg =page.locator("//label[@for='SG-ManufacturerDetails-Brand-LG'] ");
         this.wh =page.locator("//label[@for='SG-ManufacturerDetails-Brand-Whirlphool'] ");
@@ -64,7 +65,7 @@ async selectWhirlpool()
 
 async selectDell()
 {
-    await this.dell.scrollIntoViewIfNeeded();
+    //await this.dell.scrollIntoViewIfNeeded();
     await this.dell.evaluate(el => el.click())
 }
    
@@ -72,7 +73,7 @@ async selectHP()
 {
     //await this.hp.scrollIntoViewIfNeeded();
    //await this.hp.click({ force: true });
-        await this.hp.scrollIntoViewIfNeeded();
+        //await this.hp.scrollIntoViewIfNeeded();
         await this.hp.evaluate(el => el.click())
 }
 
@@ -84,16 +85,15 @@ async selectHP()
   // Step 1: find every product link on the page
   const links = this.page.locator('[data-testid="product-img"] a');
 
-  // Step 2: count how many there are
-  const count = await links.count();
-  console.log(`Found ${count} products`);
 
-  // Step 3: go through each one and grab its link
-  const hrefs = [];
-  for (let i = 0; i < count; i++) {
-    const href = await links.nth(i).getAttribute('href');
-    hrefs.push(href);
-  }
+    // wait until at least one product is on the page
+  await links.first().waitFor({ state: 'visible', timeout: 20000 });
+
+
+  // grab all hrefs in one go
+  const hrefs = await links.evaluateAll(els => els.map(el => el.href));
+
+ 
 
   console.log(`Product links: ${hrefs}`);
    return hrefs;

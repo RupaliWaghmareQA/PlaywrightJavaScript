@@ -12,8 +12,8 @@ export const test = base.extend({
     await basepage.goto("https://www.croma.com/");
    // await basepage.waitForLoginModel(); //Load the login pop-up
 
-    await basepage.enterPincode(testData.pincode);
-    await basepage.clickonContinueButton();
+    // await basepage.enterPincode(testData.pincode);
+    // await basepage.clickonContinueButton();
     console.log('✅ beforeEach hook executed');
     
     // Test runs here
