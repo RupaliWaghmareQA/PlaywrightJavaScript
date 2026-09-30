@@ -7,13 +7,15 @@ export class CromaSorting extends Basepage
        this.enterProductName=page.locator("//input[@id='searchV2']");
        this.searchResult = page.locator("//ul[@role='listbox']");
        this.sortingdropdown = page.locator("//div[@data-testid='sortdatae1']");
+
+       //div[@data-testid="sortdatae1"]
  }
 
 //locator method
 
   getSortOptionByDataTestId(optionText) 
   {
-    return this.page.locator('[data-testid="sort"]:has-text("' + optionText + '")');
+    return this.page.locator('[data-testid="sort"]:has-text("' + optionText + '")').click();
   }
     
      async clickSortingDropdown()

@@ -8,7 +8,7 @@ import { test,expect } from "../fixtures/beforeEachFixtures.js";
 test.describe('Select Multiple Brands', () => {
 
 
-   test.only(`Select Samsung, LG and Whirlpool `, async ({ page ,login}) => {
+   test.only(`Select Samsung, Dell,HP `, async ({ page ,login}) => {
   test.setTimeout(90000);
 
         const multibrand = new MultiBrandFilters(page,login);
