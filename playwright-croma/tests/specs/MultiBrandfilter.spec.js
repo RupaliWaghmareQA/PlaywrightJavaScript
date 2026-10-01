@@ -15,9 +15,7 @@ test.describe('Select Multiple Brands', () => {
        await multibrand.searchfield.fill(testData.searchproduct);
        await multibrand.selectProductFromSearchResults(testData.searchproduct);
        await multibrand.clickonBrandFilter();
-      //  await multibrand.selectLaptopBrands();
-         //await multibrand.selectLG();
-      // await multibrand.selectWhirlpool();
+  
 
               await multibrand.selectSamsung();
               await multibrand.selectHP();
