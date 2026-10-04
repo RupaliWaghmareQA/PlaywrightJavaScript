@@ -9,7 +9,6 @@ test.setTimeout(60000);
 // Iterate over configured brands and create a test for each
 test.describe('Brand Filter Tests', () => {
 
-
 testData.brands.forEach((brandObj) => {
    test(`Test 1 - filter by ${brandObj.brandFilter} `, async ({ page, login }) => {
      
