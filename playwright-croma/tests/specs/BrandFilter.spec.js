@@ -1,8 +1,8 @@
 //import {  expect } from '../fixtures/auth.fixture';
-// import { expect } from '@playwright/test';
-import { BrandFilter } from "../pages/BrandFilter.js";
+import { expect } from '@playwright/test';
+import { BrandFilter} from "../pages/BrandFilter.js";
 import { testData } from '../../test-data/testdata.js';
-import { test ,expect} from "../fixtures/beforeEachFixtures.js";
+import { test} from "../fixtures/beforeEachFixtures.js";
 
 test.setTimeout(60000);
 
@@ -29,9 +29,10 @@ testData.brands.forEach((brandObj) => {
 
 
    // STEP 3: Check that products actually loaded
-      await page.getByRole('button', { name: 'view all products' }).click();
-           // await page.waitForURL(`**/products**`);
-             // await page.waitForURL(`**/${convertlower}-/**`); 
+      await page.mouse.wheel(0, 1000); // Scroll down to load products
+      const viewAllBtn= page.getByRole('button', { name: 'view all products' });
+         await expect(viewAllBtn).toBeVisible({timeout:15000});
+         await viewAllBtn.click();
 
 
       expect(page.url()).toContain(`products`);

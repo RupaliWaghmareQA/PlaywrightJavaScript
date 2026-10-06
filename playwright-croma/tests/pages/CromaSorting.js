@@ -1,3 +1,4 @@
+import { expect } from '@playwright/test';
 import  { Basepage }  from "./Basepage.js";
 export class CromaSorting extends Basepage
 {
@@ -35,7 +36,12 @@ export class CromaSorting extends Basepage
     async enterProductNameAndSearch(searchTerm)
     {
         await this.enterProductName.fill(searchTerm);
-        await this.page.locator(`text=${searchTerm}`).first().click();
+        const suggestion = this.page
+        .getByRole('listbox')
+        .filter({ hasText: new RegExp(`^${searchTerm}$`) })
+        .first();
+        await expect(suggestion).toBeVisible({ timeout: 15000 });
+        await suggestion.click();
 
     }
 

@@ -1,3 +1,4 @@
+import { expect } from '@playwright/test';
 import { text } from "node:stream/consumers";
 import {Basepage} from "./Basepage.js";
 export class BrandFilter extends Basepage {
@@ -44,8 +45,8 @@ export class BrandFilter extends Basepage {
 // Gets the link (href) of every product shown on the page
  async getAllProductLinks() {
   const links = this.page.locator('[data-testid="product-img"] a' );
+  await expect(links.first()).toBeAttached({timeout:15000});
 
-  await links.first().waitFor({ state: 'attached' });
 
   // Grab every href in one go — no per-item waiting, no timeout risk
   const hrefs = await links.evaluateAll((elements) =>

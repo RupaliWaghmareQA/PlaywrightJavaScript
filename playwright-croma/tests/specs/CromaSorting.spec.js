@@ -20,7 +20,7 @@ test.describe("Croma Search & Sort - All Options",() => {
 
     // ===== DISCOUNT SORTING TESTS =====
 
-    test(`TC-001: Sort by Discount (Descending)`, async ({ page,login}) => 
+    test.only(`TC-001: Sort by Discount (Descending)`, async ({ page,login}) => 
         {
          const cromasort = new CromaSorting(page);   //global declaration
 
