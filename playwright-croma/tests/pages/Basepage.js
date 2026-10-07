@@ -14,17 +14,13 @@ export class Basepage {
       // ============ NAVIGATION ============
      async goto(url= '/')
      {
-       await this.page.goto(url);
-         //  await this.page.waitForLoadState('networkidle')
+       //await this.page.goto('/');
+         await this.page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+
 
     }
 
-
- 
-
-
-
-    
+  
         /*     async enterPincode(pincode) {
                 await this.pincodefield.click();
                 await this.pincodefield.fill(' ');

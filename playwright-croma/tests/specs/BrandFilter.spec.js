@@ -8,7 +8,6 @@ test.setTimeout(60000);
 
 // Iterate over configured brands and create a test for each
 test.describe('Brand Filter Tests', () => {
-
 testData.brands.forEach((brandObj) => {
    test(`Test 1 - filter by ${brandObj.brandFilter} `, async ({ page, login }) => {
      
@@ -24,7 +23,7 @@ testData.brands.forEach((brandObj) => {
        //Step 2:verify the URL contains the brand name
    await page.waitForURL(`**/${convertlower}-store/**`); 
    const currntURL=  page.url();
-   console.log(`Current URL: ${currntURL}`);
+   //console.log(`Current URL: ${currntURL}`);
    expect(currntURL.toLocaleLowerCase()).toContain((`${convertlower}-store`));
 
 
@@ -44,7 +43,7 @@ testData.brands.forEach((brandObj) => {
       // STEP 4: Check every single product belongs to this brand
       for (const link of productLinks) {
         expect(link.toLowerCase()).toContain(`/${convertlower}-`);
-                console.log(`Product links: ${productLinks}`);
+                //console.log(`Product links: ${productLinks}`);
 
       }
 

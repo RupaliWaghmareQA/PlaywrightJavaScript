@@ -9,17 +9,16 @@ export const test = base.extend({
   login: async ({ page }, use) => {
     // This runs BEFORE each test (beforeEach)
     const basepage = new Basepage(page);
+    
+    // It Block the third-party scripts that stop load from firing
+    await page.route(/google-analytics|googletagmanager|doubleclick|facebook\.net|clevertap|hotjar|clarity\.ms/, route => route.abort());
     await basepage.goto("https://www.croma.com/");
-   // await basepage.waitForLoginModel(); //Load the login pop-up
-
-    // await basepage.enterPincode(testData.pincode);
-    // await basepage.clickonContinueButton();
+   
     console.log('✅ beforeEach hook executed');
     
     // Test runs here
     await use(basepage);
-
-   
+  
     // This runs AFTER each test (afterEach)
     console.log('✅ afterEach hook executed');
   },

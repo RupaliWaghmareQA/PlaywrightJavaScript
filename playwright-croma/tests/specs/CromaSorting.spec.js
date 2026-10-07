@@ -20,7 +20,7 @@ test.describe("Croma Search & Sort - All Options",() => {
 
     // ===== DISCOUNT SORTING TESTS =====
 
-    test.only(`TC-001: Sort by Discount (Descending)`, async ({ page,login}) => 
+    test(`TC-001: Sort by Discount (Descending)`, async ({ page,login}) => 
         {
          const cromasort = new CromaSorting(page);   //global declaration
 
@@ -41,7 +41,7 @@ test.describe("Croma Search & Sort - All Options",() => {
 
        // 4. Make a sorted copy (highest to lowest)
 
-            const sorted= [...discounts].sort((a, b) => a-b ); // Sort in descending order
+            const sorted= [...discounts].sort((a, b) => b-a ); // Sort in descending order
             console.log(sorted);
 
      // 5. Compare: page order should match the sorted order
