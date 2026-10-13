@@ -2,7 +2,7 @@
 
   {  "pincode": "413304",
 
-    "searchproduct":"Laptop",
+    "searchproduct":"Washing Machine",
     
  search: [
      { searchTerm: "refrigerator" },
@@ -12,9 +12,9 @@
 
   brands:[ 
   { brandFilter:"Samsung"  },
-  { brandFilter:"Lenovo" },
+  { brandFilter:"Bosch" },
   { brandFilter:"Apple" },
-  { brandFilter:"Dell"},
+  { brandFilter:"Elica"},
   { brandFilter:"Croma" },
 ],
   

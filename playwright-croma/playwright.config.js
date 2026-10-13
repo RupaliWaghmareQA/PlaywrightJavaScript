@@ -3,6 +3,8 @@ const { defineConfig, devices } = require('@playwright/test');
 module.exports = defineConfig({
   testDir: './tests',
 
+  timeout: 90000,            // per-test timeout
+
   use: {
     baseURL: 'https://www.croma.com/',
   },

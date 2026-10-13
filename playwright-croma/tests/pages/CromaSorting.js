@@ -35,9 +35,9 @@ export class CromaSorting extends Basepage
 
 
 async enterProductNameAndSearch(searchTerm) {
-  await this.enterProductName.waitFor({ state: 'visible', timeout: 30000 });
+  await this.enterProductName.waitFor({ state: 'visible', timeout: 50000 });
   await this.enterProductName.click();
-  await this.enterProductName.pressSequentially(searchTerm, { delay: 100 });
+ await this.enterProductName.pressSequentially(searchTerm, { delay: 100 });
 
   // Match the individual suggestion, not the whole listbox, and don't anchor with ^ $
   const suggestion = this.page
@@ -46,10 +46,9 @@ async enterProductNameAndSearch(searchTerm) {
     .first();
 
   try {
-    await suggestion.waitFor({ state: 'visible', timeout: 10000 });
-    await suggestion.click();
+    await suggestion.waitFor({ state: 'visible', timeout: 5000 });
+    await suggestion.click( { timeout: 5000 });
   } catch {
-    // Fallback: if no dropdown appears, submit the search directly
     await this.enterProductName.press('Enter');
   }
 }

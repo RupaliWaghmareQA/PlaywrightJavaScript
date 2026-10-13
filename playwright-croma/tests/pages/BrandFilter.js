@@ -23,7 +23,7 @@ export class BrandFilter extends Basepage {
     async clickonBrand(brandName)
     {
       const brandLocator = this.page.locator(`//div[@id='Top Brands']//ul//li[@id='category-${brandName}']`);
-     console.log(`Clicked on brand: ${brandName}`);
+     //console.log(`Clicked on brand: ${brandName}`);
 
       //await brandLocator.waitForLoadState({ state: 'visible', timeout: 1000 });
        await brandLocator.click();
